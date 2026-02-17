@@ -12,15 +12,15 @@ The pipeline is implemented across three stages: MAP Bayesian Estimation (MAP-BE
 .
 ├── shared_pipeline_mapbe.R          # Shared data cleaning, MAP-BE runner, export utilities
 ├── 01_garibay2016_mapbe.R           # Garibay et al. (2016) PopPK model + MAP-BE
-├── 02_goti2019_mapbe.R              # Goti et al. (2019) PopPK model + MAP-BE
+├── 02_goti2018_mapbe.R              # Goti et al. (2018) PopPK model + MAP-BE
 │
 ├── shared_pipeline_xgboost.py       # Shared PK simulator, XGBoost tuning, plotting utilities
 ├── 01_garibay2016_xgboost.py        # Garibay XGBoost training and evaluation
-├── 02_goti2019_xgboost.py           # Goti XGBoost training and evaluation
+├── 02_goti2018_xgboost.py           # Goti XGBoost training and evaluation
 │
 ├── shared_pipeline_sr.py            # Shared PK simulator, PySR fitting loop, plotting utilities
 ├── 01_garibay2016_sr.py             # Garibay Symbolic Regression training and evaluation
-└── 02_goti2019_sr.py                # Goti Symbolic Regression training and evaluation
+└── 02_goti2018_sr.py                # Goti Symbolic Regression training and evaluation
 ```
 
 ---
@@ -77,7 +77,7 @@ Two-compartment model. CL scales linearly with CRCL. V1 uses an age-stratified t
 
 Key covariates: body weight (BW), creatinine clearance (CRCL, converted to L/h), age (AGE).
 
-**`02_goti2019_mapbe.R`** — Goti et al. (2019)
+**`02_goti2018_mapbe.R`** — Goti et al. (2018)
 
 Two-compartment model. CL scales with CRCL via a power function (exponent 0.8). V1 scales with body weight relative to a 70 kg reference. V2 is fixed. Dialysis status reduces TVCL by 30% and TVV1 by 50% (all patients here are non-dialysis by construction).
 
@@ -91,7 +91,7 @@ Set the working directory to your data folder, then open and run either model sc
 # In RStudio: open 01_garibay2016_mapbe.R and press Ctrl+Shift+Enter
 # Or from the R console:
 source("01_garibay2016_mapbe.R")
-source("02_goti2019_mapbe.R")
+source("02_goti2018_mapbe.R")
 ```
 
 Both scripts can be run in the same session. Each calls `rm(list = ls())` at the top to ensure a clean environment, then re-sources the shared pipeline.
@@ -140,7 +140,7 @@ Model-specific content:
 - Vp per patient: `5.90 × weight` (weight-dependent)
 - Q = 0.81 L/h
 
-**`02_goti2019_xgboost.py`** — Goti et al. (2019)
+**`02_goti2018_xgboost.py`** — Goti et al. (2018)
 
 Model-specific content:
 - `CSV_PATH = "ML_Dataset_GotiFullFinal.csv"`
@@ -155,7 +155,7 @@ Place all files in the same directory as the ML dataset CSVs, then run:
 
 ```bash
 python 01_garibay2016_xgboost.py
-python 02_goti2019_xgboost.py
+python 02_goti2018_xgboost.py
 ```
 
 ### Outputs
@@ -210,7 +210,7 @@ Model-specific content:
 - Best SR equations defined as `sr_CL(row)` and `sr_Vc(row)` — update these after inspecting the Excel output
 - Outputs: `garibay_SR_CL_final_freek.xlsx`, `garibay_SR_Vc_final_freek.xlsx`
 
-**`02_goti2019_sr.py`** — Goti et al. (2019)
+**`02_goti2018_sr.py`** — Goti et al. (2018)
 
 Model-specific content:
 - `CSV_PATH = "ML_Dataset_GotiFullFinal.csv"`
@@ -224,7 +224,7 @@ Model-specific content:
 
 ```bash
 python 01_garibay2016_sr.py
-python 02_goti2019_sr.py
+python 02_goti2018_sr.py
 ```
 
 ### Workflow
@@ -249,7 +249,7 @@ Each Excel file contains one sheet per fold, with columns: `equation`, `complexi
 
 ## PK Models
 
-| Parameter | Garibay et al. (2016) | Goti et al. (2019) |
+| Parameter | Garibay et al. (2016) | Goti et al. (2018) |
 |---|---|---|
 | TVCL | 0.49 × CRCL [L/h] | 4.5 × (CRCL/120)^0.8 [L/h] |
 | TVV1 | 1.07×BW (age>65) / 0.74×BW (age≤65) [L] | 58.4 × (BW/70) [L] |
@@ -263,7 +263,7 @@ Each Excel file contains one sheet per fold, with columns: `equation`, `complexi
 ## References
 
 - Garibay LD et al. *Population pharmacokinetics of vancomycin in adult patients.* 2016.
-- Goti V et al. *A Pharmacokinetically Guided Vancomycin Dosing Protocol.* Clin Pharmacokinet. 2019.
+- Goti V et al. *A Pharmacokinetically Guided Vancomycin Dosing Protocol.* Clin Pharmacokinet. 2018.
 - Johnson AEW et al. *MIMIC-IV, a freely accessible electronic health record dataset.* Sci Data. 2023.
 - Chen T, Guestrin C. *XGBoost: A Scalable Tree Boosting System.* KDD. 2016.
 - Cranmer M et al. *Discovering Symbolic Models from Deep Learning with Inductive Biases.* NeurIPS. 2020.
