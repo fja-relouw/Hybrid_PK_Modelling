@@ -262,8 +262,8 @@ Each Excel file contains one sheet per fold, with columns: `equation`, `complexi
 
 ## References
 
-- Garibay LD et al. *Population pharmacokinetics of vancomycin in adult patients.* 2016.
-- Goti V et al. *A Pharmacokinetically Guided Vancomycin Dosing Protocol.* Clin Pharmacokinet. 2018.
+- Medellin-Garibay SE et al. *Pharmacokinetics of vancomycin and dosing recommendations for trauma patients.* J Antimicrob Chemother.2016.
+- Goti V et al. *Hospitalized Patients With and Without Hemodialysis Have Markedly Different Vancomycin Pharmacokinetics: A Population Pharmacokinetic Model-Based Analysis.* Ther Drug Monit. 2018.
 - Johnson AEW et al. *MIMIC-IV, a freely accessible electronic health record dataset.* Sci Data. 2023.
 - Chen T, Guestrin C. *XGBoost: A Scalable Tree Boosting System.* KDD. 2016.
 - Cranmer M et al. *Discovering Symbolic Models from Deep Learning with Inductive Biases.* NeurIPS. 2020.
