@@ -3,7 +3,7 @@
 
 rm(list = ls())
 gc()
-source("00_shared_pipeline.R")   # loads libraries, cleans data, defines utilities
+source("shared_pipeline.R")   # loads libraries, cleans data, defines utilities
 
 
 
