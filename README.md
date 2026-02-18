@@ -208,7 +208,7 @@ Model-specific content:
 - PySR CL settings: `parsimony=0.15`, `maxsize=15`, `select_k_features=8`
 - PySR Vc settings: `parsimony=20.0`, `maxsize=9`, `select_k_features=2`
 - Best SR equations defined as `sr_CL(row)` and `sr_Vc(row)` — update these after inspecting the Excel output
-- Outputs: `garibay_SR_CL_final_freek.xlsx`, `garibay_SR_Vc_final_freek.xlsx`
+- Outputs: `garibay_SR_CL_final.xlsx`, `garibay_SR_Vc_final.xlsx`
 
 **`02_goti2018_sr.py`** — Goti et al. (2018)
 
@@ -238,8 +238,8 @@ python 02_goti2018_sr.py
 
 | File | Description |
 |---|---|
-| `garibay_SR_CL_final_freek.xlsx` | Hall-of-fame CL equations across 3 folds (Garibay) |
-| `garibay_SR_Vc_final_freek.xlsx` | Hall-of-fame Vc equations across 3 folds (Garibay) |
+| `garibay_SR_CL_final.xlsx` | Hall-of-fame CL equations across 3 folds (Garibay) |
+| `garibay_SR_Vc_final.xlsx` | Hall-of-fame Vc equations across 3 folds (Garibay) |
 | `goti_SR_CL_final.xlsx` | Hall-of-fame CL equations across 3 folds (Goti) |
 | `goti_SR_Vc_final.xlsx` | Hall-of-fame Vc equations across 3 folds (Goti) |
 
