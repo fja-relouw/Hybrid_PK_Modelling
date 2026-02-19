@@ -34,8 +34,8 @@ PYSR_VC = dict(
 )
 
 # Output filenames
-CL_OUTPUT = "garibay_SR_CL_final_freek.xlsx"
-VC_OUTPUT = "garibay_SR_Vc_final_freek.xlsx"
+CL_OUTPUT = "garibay_SR_CL_final.xlsx"
+VC_OUTPUT = "garibay_SR_Vc_final.xlsx"
 
 # Best SR equations (from hall-of-fame, paste chosen equations here)
 def sr_CL(row) -> float:
